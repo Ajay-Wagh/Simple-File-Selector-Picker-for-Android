@@ -175,7 +175,7 @@ class FileSelector{
             @Override
             public boolean accept(File pathname) {
                 final String name=pathname.getName();
-                if(name.startsWith("."))
+                if(pathname.isHidden())
                     return false;
                 else if(!pathname.isDirectory() && requiredFileType!=FileType.FILE_ALL)
                 {
