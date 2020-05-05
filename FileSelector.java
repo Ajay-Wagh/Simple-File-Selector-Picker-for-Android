@@ -105,7 +105,7 @@ class FileSelector{
         builder.setTitle(R.string.str_selectfilestorage);
         builder.setIcon(FolderIconDrawble);
 
-        builder.setItems(mainDirs, new DialogInterface.OnClickListener() {
+        builder.setAdapter(new ArrayAdapter<String>(context,android.R.layout.simple_expandable_list_item_1,mainDirs ), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 prepareSecond();
@@ -125,6 +125,10 @@ class FileSelector{
                 showStorageDirs();
             }
         });
+
+
+
+
         builder.setPositiveButton(R.string.str_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
