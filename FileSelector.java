@@ -34,7 +34,6 @@ class FileSelector{
     private String title;
     private int FileIconDrawable;
     private int FolderIconDrawble;
-    private boolean onetimeflag=false;
 
     enum FileType{FILE_TEXT,FILE_IMAGE,FILE_VIDEO,FILE_AUDIO,FILE_DOCUMENT,FILE_ARCHIVE,FILE_APK,FILE_CUSTOM,FILE_ALL}
 
@@ -220,20 +219,13 @@ class FileSelector{
                     }
                 }
             });
-
-            if(onetimeflag)
-            {
-                builder.show();
-            }
-            else {
-                builder.show().getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            builder.show().getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                         Toast.makeText(context, ((TextView) view).getText(), Toast.LENGTH_LONG).show();
                         return true;
                     }
-                });
-            }
+           });
         }
         catch (Exception e)
         {
